@@ -214,13 +214,13 @@ endif;
  *
  * @return  object(class)   Social_Network_Widget::instance
  */
-if ( ! function_exists( 'button_widget_init' ) ) :
+if ( ! function_exists( 'social_network_widget_init' ) ) :
     
-    function button_widget_init() {
+    function social_network_widget_init() {
 
         return Social_Network_Widget::instance();
 
     }
 
-    button_widget_init();
+    social_network_widget_init();
 endif;

@@ -1,0 +1,124 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Social Network Widget\n"
+"POT-Creation-Date: 2019-12-19 21:26+0300\n"
+"PO-Revision-Date: 2019-12-19 21:26+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: social-network-widget.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: social-network-widget-register.php:37
+msgctxt "widget name"
+msgid "Social Network"
+msgstr ""
+
+#: social-network-widget-register.php:38
+msgctxt "widget description"
+msgid "Display a simple social media icons in your sidebars."
+msgstr ""
+
+#: social-network-widget-register.php:147
+msgctxt "field label"
+msgid "Title:"
+msgstr ""
+
+#: social-network-widget-register.php:168
+msgctxt "field label"
+msgid "Open linked address(es) in a new window?"
+msgstr ""
+
+#: social-network-widget-register.php:175
+msgctxt "field label"
+msgid "Color:"
+msgstr ""
+
+#: social-network-widget-register.php:189
+msgctxt "field label"
+msgid "Background:"
+msgstr ""
+
+#: social-network-widget-register.php:214
+msgctxt "button label"
+msgid "Add an icon"
+msgstr ""
+
+#: social-network-widget-register.php:292
+msgctxt "field label"
+msgid "Account URL"
+msgstr ""
+
+#: social-network-widget-register.php:298
+msgctxt "button label"
+msgid "Remove"
+msgstr ""
+
+#: social-network-widget-register.php:411
+msgid "RSS Feed"
+msgstr ""
+
+#: social-network-widget-register.php:462
+msgid "Email"
+msgstr ""
+
+#: social-network-widget.php:107
+msgctxt "clone"
+msgid "Cloning instances of this class is forbidden."
+msgstr ""
+
+#: social-network-widget.php:119
+msgctxt "wakeup"
+msgid "Unserializing instances of this class is forbidden."
+msgstr ""
+
+#: social-network-widget.php:202
+#, php-format
+msgctxt "plugin link"
+msgid "%sHire Me!%s"
+msgstr ""
+
+#: social-network-widget.php:202
+msgctxt "upsell"
+msgid "Looking for help? Hire Me!"
+msgstr ""
+
+#: social-network-widget.php:203
+#, php-format
+msgctxt "plugin link"
+msgid "%sSupport%s"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Social Network Widget"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.mypreview.one"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A simple widget that allows you easily add icons for the most popular social "
+"networks to your sidebar or other widget area."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "MyPreview"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.upwork.com/o/profiles/users/_~016ad17ad3fc5cce94"
+msgstr ""

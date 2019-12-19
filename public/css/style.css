@@ -5,3 +5,16 @@
  * @package     social-network-widget
  * @author      MyPreview (Github: @mahdiyazdani, @mypreview, @gookalani)
  */
+ul.social-network-icons {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+li.social-network-icons__item {
+	list-style: none;
+	padding: 0 15px 11px 0;
+}
+li.social-network-icons__item:last-child {
+	padding-right: 0;
+}

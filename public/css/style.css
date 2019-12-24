@@ -26,3 +26,7 @@ li.social-network-icons__item a {
     padding: 2px;
     border-radius: 2px;
 }
+
+.widget li.social-network-icons__item {
+    margin: 0;
+}

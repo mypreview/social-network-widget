@@ -138,8 +138,8 @@ class Social_Network_Widget_Register extends WP_Widget {
      * @return  void
      */
     public function form( $instance ) {
-        $instance = wp_parse_args( (array) $instance, $this->defaults );
         
+        $instance = wp_parse_args( (array) $instance, $this->defaults );
         ?><p>
             <label 
                 for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"

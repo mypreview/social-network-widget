@@ -1,5 +1,5 @@
 === Social Network Widget ===
-Contributors: mahdiyazdani, mypreview
+Contributors: mahdiyazdani, mypreview, gookaani
 Tags: social media widget, social icons, follow us widget, social button, social follow widget
 Donate link: https://www.mypreview.one
 Requires at least: 5.0

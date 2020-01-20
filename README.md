@@ -3,11 +3,7 @@
 
 ![Social Network Widget](https://ps.w.org/social-network-widget/assets/banner-1544x500.jpg?rev=1542924)
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-
-►► If you are not a developer, please use the offical [plugin post page](https://wordpress.org/plugins/social-network-widget "Download Social Network Widget plugin") on wordpress.org.
-
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+> ⚠️ If you are not a developer, please use the offical [plugin post page](https://wordpress.org/plugins/social-network-widget "Download Social Network Widget plugin") on wordpress.org.
 
 ## Installation
 

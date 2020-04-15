@@ -165,14 +165,14 @@ class Social_Network_Widget_Register extends WP_Widget {
             <label 
                 for="<?php echo esc_attr( $this->get_field_id( 'target' ) ); ?>"
             ><?php 
-                _ex( 'Open linked address(es) in a new window?', 'field label', 'button-widget' ); 
+                _ex( 'Open linked address(es) in a new window?', 'field label', 'social-network-widget' ); 
             ?></label>
         </p>
         <p>
             <label 
                 for="<?php echo esc_attr( $this->get_field_id( 'text_color' ) ); ?>"
             ><?php 
-                _ex( 'Color:', 'field label', 'button-widget' ); 
+                _ex( 'Color:', 'field label', 'social-network-widget' ); 
             ?></label>
             <input
                 type="text"
@@ -186,7 +186,7 @@ class Social_Network_Widget_Register extends WP_Widget {
             <label 
                 for="<?php echo esc_attr( $this->get_field_id( 'background_color' ) ); ?>"
             ><?php 
-                _ex( 'Background:', 'field label', 'button-widget' ); 
+                _ex( 'Background:', 'field label', 'social-network-widget' ); 
             ?></label>
             <input
                 type="text"

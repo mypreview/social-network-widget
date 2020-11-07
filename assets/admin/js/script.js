@@ -11,174 +11,126 @@
 		return;
 	}
 
-	let timeout = null;
 	const SNW = {
 		cache() {
 			SNW.els = {};
 			SNW.vars = {};
-			SNW.vars.widgetID = '[id*="social_network_widget"]';
-			SNW.vars.widgetName = '[name*="social_network_widget"]';
-			SNW.vars.colorpicker = '.social-network-widget-color-picker';
-			SNW.vars.iconsList = '.social-network-icons-widget-list';
-			SNW.vars.addBtnClassname = '.social-network-widget.add-button button';
-			SNW.vars.removeBtnClassname = '.social-network-widget-item__remove a';
+			SNW.vars.name = 'social-network-widget';
+			SNW.vars.id = '[id*="social_network_widget"]';
+			SNW.vars.list = `.social-network-icons-widget-list`;
+			SNW.vars.color = `.${ SNW.vars.name }-color-picker`;
+			SNW.vars.add = `.${ SNW.vars.name }.add-button button`;
+			SNW.vars.remove = `.${ SNW.vars.name }-item__remove a`;
+			SNW.els.$doc = $( document );
 		},
-
-		// Run after the document is loaded
+		// Execute callback after the DOM is loaded.
 		ready() {
 			SNW.cache();
-			SNW.onAddClick();
-			SNW.onRemoveClick();
 			SNW.onOpen();
-			SNW.onAdded();
-			SNW.onUpdated();
-			SNW.onFocusOut();
-			SNW.onKeyDown();
-			SNW.onKeyUp();
-			SNW.onChange();
+			SNW.onAdd();
+			SNW.onUpdate();
+			SNW.onRemove();
 		},
-
-		// Add an item.
-		onAddClick() {
-			$( document ).on( 'click', SNW.vars.addBtnClassname, function ( event ) {
-				// Default action of the event should not be triggered.
-				event.preventDefault();
-				// Prevents the event from bubbling up the DOM tree.
-				event.stopPropagation();
-
-				const template = $( $.trim( $( '#tmpl-social-network-widget' ).html() ) ),
-					widgetContent = $( this ).parents( '.widget-content' ),
-					widgetList = widgetContent.find( SNW.vars.iconsList ),
-					urlId = widgetList.data( 'url-icon-id' ),
-					urlName = widgetList.data( 'url-icon-name' );
-				template
-					.find( '.social-network-widget-item__url input' )
-					.attr( 'id', urlId )
-					.attr( 'name', urlName + '[]' );
-				widgetList.append( template );
-				const widgetLastItem = widgetContent.find( '.social-network-widget-item:last' );
-				widgetLastItem.find( 'input:first' ).trigger( 'focus' );
-			} );
-		},
-
-		// Remove an item.
-		onRemoveClick() {
-			$( document ).on( 'click', SNW.vars.removeBtnClassname, function ( event ) {
-				// Default action of the event should not be triggered.
-				event.preventDefault();
-				// Prevents the event from bubbling up the DOM tree.
-				event.stopPropagation();
-
-				const button = $( this ).parents( '.form' ).find( '.widget-control-save' );
-				$( this ).parents( '.social-network-widget-item' ).remove();
-				SNW._livePreviewUpdate( button );
-			} );
-		},
-
-		// Open button.
+		// Trigger on widget panel is opened.
 		onOpen() {
-			$( document ).on(
+			SNW.els.$doc.on(
 				'click',
-				`div.widget${ SNW.vars.widgetID } .widget-title, div.widget${ SNW.vars.widgetID } .widget-action`,
-				function () {
-					if ( $( this ).parents( '#available-widgets' ).length > 0 ) {
+				`div.widget${ SNW.vars.id } .widget-title, div.widget${ SNW.vars.id } .widget-action`,
+				( event ) => {
+					const $this = $( event.target );
+
+					if ( !! $this.parents( '#available-widgets' ).length ) {
 						return;
 					}
-
-					SNW._initWidget( $( this ).parents( `.widget${ SNW.vars.widgetID }` ) );
-					SNW._initColorPicker( $( this ).parents( `.widget${ SNW.vars.widgetID }` ) );
+					SNW._sortable( $this.parents( `.widget${ SNW.vars.id }` ) );
+					SNW._colorPicker( $this.parents( `.widget${ SNW.vars.id }` ) );
 				}
 			);
 		},
+		// Add new social network address field.
+		onAdd() {
+			SNW.els.$doc.on( 'click', SNW.vars.add, ( event ) => {
+				event.preventDefault();
 
-		onAdded() {
-			$( document ).on( 'widget-added', function ( event, widget ) {
-				if ( widget.is( SNW.vars.widgetID ) ) {
-					// Default action of the event should not be triggered.
+				const $this = $( event.target ),
+					$widget = $this.parents( `.widget${ SNW.vars.id }` ),
+					$template = $( $.trim( $( `#tmpl-${ SNW.vars.name }` ).html() ) ),
+					$widgetContent = $this.parents( '.widget-content' ),
+					$widgetList = $widgetContent.find( SNW.vars.list ),
+					urlId = $widgetList.data( 'url-icon-id' ),
+					urlName = $widgetList.data( 'url-icon-name' );
+
+				$template
+					.find( `.${ SNW.vars.name }-item__url input` )
+					.attr( 'id', urlId )
+					.attr( 'name', `${ urlName }[]` );
+				$widgetList.append( $template );
+				const $widgetLastItem = $widgetContent.find( `.${ SNW.vars.name }-item:last` );
+				$widgetLastItem.find( 'input:first' ).trigger( 'focus' );
+				SNW._triggerChange( $widget );
+			} );
+		},
+		// Delete existing social network URL field.
+		onRemove() {
+			SNW.els.$doc.on( 'click', SNW.vars.remove, ( event ) => {
+				event.preventDefault();
+
+				const $this = $( event.target ),
+					$widget = $this.parents( `.widget${ SNW.vars.id }` ),
+					$button = $this.parents( '.form' ).find( '.widget-control-save' );
+				$this.parents( `.${ SNW.vars.name }-item` ).remove();
+				SNW._triggerChange( $widget );
+				SNW._previewUpdate( $button );
+			} );
+		},
+		// Trigger once the widget is being saved/updated.
+		onUpdate() {
+			SNW.els.$doc.on( 'widget-updated', ( event, $widget ) => {
+				if ( $widget.is( SNW.vars.id ) ) {
 					event.preventDefault();
-
-					SNW._initWidget( widget );
-					SNW._initColorPicker( $( this ).parents( `.widget${ SNW.vars.widgetID }` ) );
+					SNW._sortable( $widget );
+					SNW._colorPicker( $widget );
 				}
 			} );
 		},
-
-		onUpdated() {
-			$( document ).on( 'widget-updated', function ( event, widget ) {
-				if ( widget.is( SNW.vars.widgetID ) ) {
-					// Default action of the event should not be triggered.
-					event.preventDefault();
-
-					SNW._initWidget( widget );
-					SNW._initColorPicker( $( this ) );
-				}
-			} );
-		},
-
-		// Live preview update on input focus out.
-		onFocusOut() {
-			$( document ).on( 'focusout', `input${ SNW.widgetName }`, function () {
-				SNW._livePreviewUpdate( $( this ).parents( '.form' ).find( '.widget-control-save' ) );
-			} );
-		},
-
-		// Live preview update on input focus out.
-		onKeyDown() {
-			$( document ).on( 'keydown', `input${ SNW.widgetName }`, function ( event ) {
-				if ( event.keyCode === 13 ) {
-					SNW._livePreviewUpdate( $( this ).parents( '.form' ).find( '.widget-control-save' ) );
-				}
-			} );
-		},
-
-		// Live preview update on input focus out.
-		onKeyUp() {
-			$( document ).on( 'keyup', `input${ SNW.widgetName }`, function () {
-				clearTimeout( timeout );
-
-				timeout = setTimeout( function () {
-					SNW._livePreviewUpdate( $( this ).parents( '.form' ).find( '.widget-control-save' ) );
-				}, 1000 );
-			} );
-		},
-
-		onChange() {
-			$( document ).on( 'change', `select${ SNW.widgetName }`, function () {
-				$( this ).parents( '.form' ).find( '.widget-control-save' );
-			} );
-		},
-
-		_initWidget( widget ) {
-			widget.find( SNW.vars.iconsList ).sortable( {
-				items: '> .social-network-widget-item',
-				handle: '.handle',
-				cursor: 'move',
+		// Initialize sortable on social network addresses.
+		_sortable( $widget ) {
+			$widget.find( SNW.vars.list ).sortable( {
 				axis: 'y',
-				placeholder: 'social-network-widget-item ui-state-placeholder',
-				containment: widget,
+				items: `> .${ SNW.vars.name }-item`,
+				handle: '.handle',
+				cursor: 'grabbing',
+				placeholder: `${ SNW.vars.name }-item ui-state-placeholder`,
+				containment: $widget,
 				forcePlaceholderSize: true,
-				update() {
-					SNW._livePreviewUpdate( $( this ).parents( '.form' ).find( '.widget-control-save' ) );
+				start( event, ui ) {
+					ui.placeholder.height( ui.item.height() );
+				},
+				update( event, ui ) {
+					SNW._triggerChange( $widget );
+					SNW._previewUpdate( $( ui ).parents( '.form' ).find( '.widget-control-save' ) );
 				},
 			} );
 		},
-
 		// Initialize color picker
-		_initColorPicker( widget ) {
-			widget.find( SNW.vars.colorpicker ).wpColorPicker( {
+		_colorPicker( $widget ) {
+			$widget.find( SNW.vars.color ).wpColorPicker( {
 				change: _.throttle( function () {
 					// For Customizer
 					$( this ).trigger( 'change' );
 				}, 3000 ),
 			} );
 		},
-
-		_livePreviewUpdate( button ) {
-			if ( ! $( document.body ).hasClass( 'wp-customizer' ) || ! button.length ) {
+		// Activate `Save` button with triggering change of state in the title input.
+		_triggerChange( $widget ) {
+			$widget.find( 'input[name*="[title]"]' ).trigger( 'change' );
+		},
+		// Update widget while previewing from the Customizer pane.
+		_previewUpdate( $button ) {
+			if ( ! $( document.body ).hasClass( 'wp-customizer' ) || ! $button.length > 0 ) {
 				return;
 			}
-
-			button.trigger( 'click' ).hide();
+			$button.trigger( 'click' ).hide();
 		},
 	};
 

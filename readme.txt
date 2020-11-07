@@ -1,50 +1,35 @@
 === Social Network Widget ===
 Contributors: mahdiyazdani, mypreview, gookaani
-Tags: social media widget, social icons, follow us widget, social button, social follow widget
+Tags: social profiles, social icons, social media, social networks, widget, icons
 Donate link: https://www.mypreview.one
 Requires at least: 5.0
 Tested up to: 5.3.1
 Requires PHP: 7.2
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.1.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 A simple customizable social networks widget for your sidebars.
 
 == Description ==
 A simple widget that allows you easily add icons for the most popular social networks to your sidebar or other widget area.
 
-**Translators & Non-English Speakers**
-
-Translators are welcome to contribute to the plugin. Please use the [WordPress translation website](https://translate.wordpress.org/projects/wp-plugins/social-network-widget "WordPress translation website").
-
-**Get Involved**
-
-Want to contribute? Here's the [GitHub development repository](https://github.com/mypreview/social-network-widget "GitHub development repository").
-
-**Free Support**
-
-All support is handled via a dedicated support forum, available at [Community Forums](https://wordpress.org/support/plugin/social-network-widget "Community Forums"). Please head out there to open a new topic, in case you have any questions.
-
-**Support this plugin**
-
-Don't forget to rate this plugin [5 shining stars](https://wordpress.org/support/plugin/social-network-widget/reviews/ "5 shining stars") if you like it, thanks!
-
 == Installation ==
 = Minimum Requirements =
 
-* PHP 7.2 or greater is recommended
-* MySQL 5.6 or greater is recommended
+* PHP version 7.2 or greater.
+* MySQL version 5.6 or greater or MariaDB version 10.0 or greater.
+* WordPress version 5.0 or greater.
 
 = Automatic installation =
 
-Automatic installation is the easiest option — WordPress will handles the file transfer, and you won’t need to leave your web browser. To do an automatic install of the plugin, log in to your WordPress dashboard, navigate to the Plugins menu, and click “Add New.”
+Automatic installation is the easiest option — WordPress will handle the file transfer, and you won’t need to leave your web browser. To do an automatic install of the plugin, log in to your WordPress dashboard, navigate to the Plugins menu, and click “Add New.”
  
-In the search field type “Social Network Widget,” then click “Search Plugins.” Once you’ve found the plugin, you can view details about it such as the point release, rating, and description. Click “Install Now,” and WordPress will take it from there.
+In the search field type “Social Network Widget”, then click “Search Plugins.” Once you’ve found the plugin, you can view details about it such as the point release, rating, and description. Click “Install Now,” and WordPress will take it from there.
 
 = Manual installation =
 
-Manual installation method requires downloading the plugin plugin and uploading it to your web server via your favorite FTP application. The WordPress codex contains [instructions on how to do this here](https://wordpress.org/support/article/managing-plugins/#manual-plugin-installation "Manual plugin installation").
+The manual installation method requires downloading the plugin and uploading it to your webserver via your favorite FTP application. The WordPress codex contains [instructions on how to do this here](https://wordpress.org/support/article/managing-plugins/#manual-plugin-installation "Manual plugin installation").
 
 = Updating =
 
@@ -122,14 +107,38 @@ Linking to any of the following sites in your social network widget will automat
 
 NOTE — The rights to each pictogram (icon) in this plugin are either trademarked or copyrighted by the respective company.
 
+= How do I get help with the plugin? =
+The easiest way to receive support is to “Create a new topic” by visiting Community Forums page [here](https://wordpress.org/support/plugin/social-network-widget "Social Network Widget Support Forum").
+
+Make sure to check the “Notify me of follow-up replies via email” checkbox to receive notifications, as soon as a reply posted to your question or inquiry.
+
+*Please note that this is an opensource 100% volunteer project, and it’s not unusual to get reply days or even weeks later.*
+
+= Can I help in translating this plugin into a new language? =
+The plugin is fully translation-ready and localized using the GNU framework, and translators are welcome to contribute to the plugin.
+
+Here’s the [WordPress translation website &#8594;](https://translate.wordpress.org/projects/wp-plugins/social-network-widget "WordPress translation website")
+
+= How do I contribute to this plugin? =
+We welcome contributions in any form, and you can help reporting, testing, and detailing bugs.
+
+Here’s the [GitHub development repository &#8594;](https://github.com/mypreview/social-network-widget "GitHub development repository")
+
+= Did you like the idea behind this plugin? =
+Please share your experience by leaving this plugin [5 shining stars](https://wordpress.org/support/plugin/social-network-widget/reviews/ "Rate Social Network Widget 5 stars") if you like it, thanks!
+
 = I need help customizing this plugin? =
-I am a full-stack developer with over five years of experience in WordPress theme and plugin development and customization. I would love to have the opportunity to discuss your project with you.
-[Hire me at UpWork &#8594;](https://www.upwork.com/o/profiles/users/_~016ad17ad3fc5cce94/ "Mahdi Yazdani Freelancer Profile")
+Professional engineer and independent creative technologist in tech · over 6 years experience working from prototype to production · developing WordPress products, services, and eCommerce solutions.
+
+[Available for hire &#8594;](https://mahdiyazdani.com "Mahdi Yazdani’s personal website")
 
 == Screenshots ==
 1. Widget settings interface
-2. “Follow Us” widget visible on Hypermarket theme’s footer.
 
 == Changelog ==
+= 1.1.0 =
+* Multiple code standards improvements.
+* Compatibility with WordPress 5.5
+
 = 1.0.0 =
 * Initial release.

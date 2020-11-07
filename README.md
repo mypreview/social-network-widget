@@ -1,7 +1,7 @@
 # Social Network Widget
 [![Social Network Widget Downloads](https://img.shields.io/wordpress/plugin/dt/social-network-widget.svg)](https://wordpress.org/plugins/social-network-widget) [![Social Network Widget Active Installs](https://img.shields.io/wordpress/plugin/installs/social-network-widget.svg)](https://wordpress.org/plugins/social-network-widget) [![Social Network Widget Ratings](https://img.shields.io/wordpress/plugin/r/social-network-widget.svg)](https://wordpress.org/plugins/social-network-widget) [![Social Network Widget Tested](https://img.shields.io/wordpress/plugin/tested/social-network-widget.svg)](https://wordpress.org/plugins/social-network-widget) [![Social Network Widget Version](https://img.shields.io/wordpress/plugin/v/social-network-widget.svg)](https://wordpress.org/plugins/social-network-widget) [![Social Network Widget License](https://img.shields.io/github/license/mypreview/social-network-widget)](https://wordpress.org/plugins/social-network-widget) [![Hire Mahdi Yazdani at UpWork](https://img.shields.io/badge/Hire%20Me-UpWork-37A000)](https://www.upwork.com/o/profiles/users/_~016ad17ad3fc5cce94)
 
-![Social Network Widget](https://ps.w.org/social-network-widget/assets/banner-1544x500.jpg?rev=1542924)
+![Social Network Widget](https://ps.w.org/social-network-widget/assets/banner-1544x500.png?rev=2319893)
 
 > ⚠️ If you are not a developer, please use the offical [plugin post page](https://wordpress.org/plugins/social-network-widget "Download Social Network Widget plugin") on wordpress.org.
 

@@ -50,24 +50,24 @@
 .social-network-widget-item p + p {
 	margin-top: 1em;
 }
-.social-network-widget-item__wrapper__remove {
+.social-network-widget-item__remove {
 	display: inline-block;
 }
-.social-network-widget-item__wrapper__remove a {
+.social-network-widget-item__remove a {
 	color: #a00;
 	text-decoration: none;
 }
-.social-network-widget-item__wrapper__remove a:focus, 
-.social-network-widget-item__wrapper__remove a:hover {
+.social-network-widget-item__remove a:focus,
+.social-network-widget-item__remove a:hover {
 	color: #f00;
 }
-.social-network-widget.add-button .button:before {
+.social-network-widget.add-button .button::before {
 	left: -2px;
 	font-weight: 400;
-    content: "\f132";
-    font-family: 'dashicons';
-    vertical-align: middle;
-    display: inline-block;
-    position: relative;
-    transition: all 0.2s;
+	content: "\f132";
+	font-family: "dashicons";
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	transition: all 0.2s;
 }

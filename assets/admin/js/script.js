@@ -10,7 +10,7 @@
 
     if ( ! wp ) {
         return;
-    } // End If Statement
+    } 
 
     var timeout = null;
     var SNW = {
@@ -23,7 +23,7 @@
             SNW.vars.colorpicker = '.social-network-widget-color-picker';
             SNW.vars.iconsList = '.social-network-icons-widget-list';
             SNW.vars.addBtnClassname = '.social-network-widget.add-button button';
-            SNW.vars.removeBtnClassname = '.social-network-widget-item__wrapper__remove a';
+            SNW.vars.removeBtnClassname = '.social-network-widget-item__remove a';
         },
 
         // Run after the document is loaded
@@ -55,7 +55,7 @@
                 widgetList = widgetContent.find( SNW.vars.iconsList );
                 urlId = widgetList.data( 'url-icon-id' );
                 urlName = widgetList.data( 'url-icon-name' );
-                template.find( '.social-network-widget-item__wrapper__url input' ).attr( 'id', urlId ).attr( 'name', urlName + '[]' );
+                template.find( '.social-network-widget-item__url input' ).attr( 'id', urlId ).attr( 'name', urlName + '[]' );
                 widgetList.append( template );
                 widgetLastItem = widgetContent.find( '.social-network-widget-item:last' );
                 widgetLastItem.find( 'input:first' ).trigger( 'focus' );
@@ -81,7 +81,7 @@
             $( document ).on( 'click', `div.widget${ SNW.vars.widgetID } .widget-title, div.widget${ SNW.vars.widgetID } .widget-action`, function() {
                 if ( $( this ).parents( '#available-widgets' ).length > 0 ) {
                     return;
-                } // End If Statement
+                } 
 
                 SNW._initWidget( $( this ).parents( `.widget${ SNW.vars.widgetID }` ) );
                 SNW._initColorPicker( $( this ).parents( `.widget${ SNW.vars.widgetID }` ) );
@@ -96,7 +96,7 @@
 
                     SNW._initWidget( widget );
                     SNW._initColorPicker( $( this ).parents( `.widget${ SNW.vars.widgetID }` ) );
-                } // End If Statement
+                } 
             } );
         },
 
@@ -108,7 +108,7 @@
 
                     SNW._initWidget( widget );
                     SNW._initColorPicker( $( this ) );
-                } // End If Statement
+                } 
             } );
         },
 
@@ -128,7 +128,7 @@
                     SNW._livePreviewUpdate(
                         $( this ).parents( '.form' ).find( '.widget-control-save' )
                     );
-                } // End If Statement
+                } 
             } );
         },
 
@@ -180,7 +180,7 @@
         _livePreviewUpdate: function( button ) {
             if ( ! $( document.body ).hasClass( 'wp-customizer' ) || ! button.length ) {
                 return;
-            } // End If Statement
+            } 
 
             button.trigger( 'click' ).hide();
         }

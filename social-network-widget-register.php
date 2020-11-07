@@ -85,6 +85,7 @@ class Social_Network_Widget_Register extends WP_Widget {
 	 * @return  void
 	 */
 	public function widget( $args, $instance ) {
+		$i = 0;
 		$html              = array();
 		$instance          = wp_parse_args( (array) $instance, $this->defaults );
 		$instance['title'] = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
@@ -100,14 +101,14 @@ class Social_Network_Widget_Register extends WP_Widget {
 			$html['ul_open'] = '<ul class="social-network-icons">';
 			foreach ( $instance['icons'] as $icon ) {
 				if ( ! empty( $icon['url'] ) ) {
-					$html['li_open']   = '<li class="social-network-icons__item">';
-					$html['link_open'] = sprintf( '<a href="%s" title="%s" target="%s" rel="%s" style="%s">%s</a>', esc_url( $icon['url'], array( 'http', 'https', 'mailto', 'skype' ) ), sanitize_title( $icon['label'] ), $get_target ? '_blank' : '_self', $get_target ? 'noopener noreferrer nofollow' : '', implode( '', $get_colors ) );
+					$html[sprintf( 'li_open_%d', $i )]   = '<li class="social-network-icons__item">';
+					$html[sprintf( 'link_open_%d', $i )] = sprintf( '<a href="%s" target="%s" rel="%s" style="%s">', esc_url( $icon['url'], array( 'http', 'https', 'mailto', 'skype' ) ), $get_target ? '_blank' : '_self', $get_target ? 'noopener noreferrer nofollow' : '', implode( '', $get_colors ) );
 					$found_icon        = false;
 					foreach ( $social_icons as $social_icon ) {
 						foreach ( $social_icon['url'] as $url_fragment ) {
 							if ( false !== stripos( $icon['url'], $url_fragment ) ) {
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								$html['link_label'] = sprintf( '<span class="screen-reader-text">%s</span>%s', esc_attr( $social_icon['label'] ), $social_icon['icon'] );
+								$html[sprintf( 'link_label_%d', $i )] = sprintf( '<span class="screen-reader-text">%s</span>%s', esc_attr( $social_icon['label'] ), $social_icon['icon'] );
 								$found_icon         = true;
 								break;
 							}
@@ -115,11 +116,12 @@ class Social_Network_Widget_Register extends WP_Widget {
 					}
 
 					if ( ! $found_icon ) {
-						$html['fallback_icon'] = self::get_default_icon();
+						$html[sprintf( 'fallback_icon_%d', $i )] = self::get_default_icon();
 					}
 
-					$html['link_close'] = '</a>';
+					$html[sprintf( 'link_close_%d', $i )] = '</a>';
 				}
+				$i++;
 			}
 			$html['ul_close'] = '</ul>';
 		}
